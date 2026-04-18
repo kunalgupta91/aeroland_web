@@ -1,0 +1,155 @@
+# Aeroland Website Development Guide
+
+## Project Overview
+Aeroland is a GMADA (Greater Mohali Area Development Authority) planned township near Chandigarh International Airport. This is a Next.js 14 website built with Tailwind CSS and Framer Motion, featuring a hand-rolled bilingual (EN/HI) system.
+
+## Quick Start
+
+### Commands
+```bash
+npm run dev      # Start dev server at http://localhost:3000
+npm run build    # Production build (run this to catch type/lint errors)
+npm start        # Serve production build locally
+```
+
+## Architecture
+
+### Technology Stack
+- **Framework:** Next.js 14 with App Router
+- **Styling:** Tailwind CSS
+- **Animations:** Framer Motion
+- **Bilingual System:** Hand-rolled EN/HI switching
+
+### Bilingual Content System
+All user-facing text lives in two JSON files:
+- `src/data/content.en.json` (English)
+- `src/data/content.hi.json` (Hindi)
+
+Use the `useLanguage()` hook from `src/context/LanguageContext.tsx` to access content:
+```tsx
+const { t, language, setLanguage } = useLanguage();
+```
+
+**IMPORTANT:** Never hardcode user-facing strings in components. Always add them to both JSON files first.
+
+### Page Structure Pattern
+Every non-home page follows this pattern:
+```tsx
+<div className="pt-16">                 {/* clears fixed 64px navbar */}
+  <div className="gradient-green ...">  {/* dark green hero banner */}
+  <section className="section-padding bg-white">  {/* main content */}
+```
+
+The `pt-16` spacer is critical — without it content slides behind the fixed navbar.
+
+### Navbar Behavior
+- **Transparent with white text** only on the home page at scroll position 0
+- **Dark/frosted style** on all other pages and when scrolled on home page
+- Logic: `const dark = scrolled || !isHome` in `Navbar.tsx`
+
+### CSS Utilities (globals.css)
+- `.gradient-green` — dark green diagonal gradient for hero banners
+- `.gradient-green-light` — pale green for light CTA sections
+- `.section-padding` — `py-20 px-4 md:px-8 lg:px-16`
+- `.container-max` — `max-w-7xl mx-auto`
+- `.badge` — light green pill for section labels (white backgrounds)
+- `.page-hero-badge` — semi-transparent pill for labels (dark banners)
+
+## Project Structure
+```
+src/
+├── app/                          # Next.js pages
+│   ├── page.tsx                 # Home page
+│   ├── about/page.tsx           # About page
+│   ├── contact/page.tsx         # Contact page
+│   ├── docs/page.tsx            # Documentation page
+│   ├── highlights/page.tsx      # Highlights page
+│   ├── location/page.tsx        # Location page
+│   ├── media/page.tsx           # Media/News page
+│   ├── layout.tsx               # Root layout
+│   └── globals.css              # Global styles
+├── components/                   # React components
+│   ├── Navbar.tsx               # Navigation bar
+│   ├── Footer.tsx               # Footer
+│   ├── HeroSection.tsx          # Hero banner
+│   └── StatsCounter.tsx         # Statistics display
+├── context/                      # React context
+│   └── LanguageContext.tsx      # Language switching context
+└── data/                         # Content
+    ├── content.en.json          # English content
+    └── content.hi.json          # Hindi content
+
+public/assets/                    # Static assets
+├── news1.jpg - news5.jpg        # Press/news images
+├── aeroland.pdf                 # Master plan PDF
+└── aeroland-map.jpg             # Location map (placeholder)
+```
+
+## Key Project Facts
+
+**Aeroland Details:**
+- GMADA planned township near Chandigarh International Airport
+- Two pockets:
+  - **Pocket A:** North (near Dyalpur/Nandiali)
+  - **Pocket B:** South (near Matran)
+- Adjacent to Aerocity and upcoming Expo City (India's first AI Tower, 300+ companies)
+- Official Notification: H-U-H1/65/2026-6H1/I/452 dated 03/03/2026
+- Primary Audience: Plot buyers and real estate investors
+
+## Git Workflow
+
+### Initial Setup
+```bash
+git config user.email "dev@aeroland.com"
+git config user.name "Aeroland Developer"
+```
+
+### Committing Changes
+```bash
+git add .
+git commit -m "Descriptive commit message"
+git push origin main
+```
+
+### Repository
+- **Remote:** https://github.com/kunalgupta91/aeroland_web.git
+- **Branch:** main
+
+## Development Best Practices
+
+1. **Always verify with production build** before considering work complete:
+   ```bash
+   npm run build
+   ```
+
+2. **Bilingual content first** — Update both EN and HI JSON files before adding components
+
+3. **Follow page structure pattern** — Use `pt-16` spacing and consistent hero layouts
+
+4. **Use CSS utilities** — Leverage existing classes in globals.css for consistency
+
+5. **Test navbar transitions** — Verify dark/transparent switching on home page
+
+6. **Git commits** — Make small, meaningful commits with descriptive messages
+
+## Troubleshooting
+
+**Issue:** Content not updating in browser
+- Clear `.next` cache: `rm -r .next` (or on Windows: `Remove-Item .next -Recurse -Force`)
+- Rebuild: `npm run build`
+
+**Issue:** Lock file errors
+```bash
+# Remove lock file
+rm .git/index.lock
+# Or on Windows
+Remove-Item .git/index.lock -Force
+```
+
+**Issue:** Navbar behavior incorrect
+- Check `Navbar.tsx` dark state logic
+- Verify `isHome` and `scrolled` values
+- Test on home page at different scroll positions
+
+## Contact & Support
+For questions about the project structure or deployment, refer to CLAUDE.md and SETUP.md files.
