@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --brand-dark: #0f3d22;
+  --brand:      #1a5c35;
+  --brand-light: #2d8653;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply text-gray-800 bg-white;
+}
+
+.gradient-green {
+  background: linear-gradient(135deg, #052e16 0%, #166534 50%, #15803d 100%);
+}
+
+.gradient-green-light {
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+}
+
+.section-padding {
+  @apply py-20 px-4 md:px-8 lg:px-16;
+}
+
+.container-max {
+  @apply max-w-7xl mx-auto;
+}
+
+.badge {
+  @apply inline-block text-green-600 text-xs font-semibold uppercase tracking-widest border border-green-200 bg-green-50 px-4 py-1.5 rounded-full mb-4;
+}
+
+.page-hero-badge {
+  @apply inline-block bg-green-500 bg-opacity-20 border border-green-400 text-green-200 text-xs font-semibold px-4 py-1.5 rounded-full mb-4 uppercase tracking-widest;
+}

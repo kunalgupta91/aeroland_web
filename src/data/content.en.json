@@ -1,0 +1,169 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "highlights": "Highlights",
+    "media": "Media",
+    "location": "Location",
+    "docs": "Documentation",
+    "contact": "Contact"
+  },
+  "hero": {
+    "badge": "GMADA Approved Township",
+    "title": "Aeroland",
+    "subtitle": "Where the Future Takes Flight",
+    "description": "Punjab's premier planned township, adjacent to Chandigarh International Airport. A GMADA-backed development poised to become the region's most connected urban destination.",
+    "cta_primary": "Register Your Interest",
+    "cta_secondary": "Download Brochure"
+  },
+  "stats": [
+    { "value": 5500, "suffix": "+", "label": "Acres", "sublabel": "GMADA Aerotropolis" },
+    { "value": 1878, "prefix": "₹", "suffix": "Cr", "label": "Bypass Investment", "sublabel": "6-Lane Zirakpur Bypass" },
+    { "value": 300, "suffix": "+", "label": "AI Companies", "sublabel": "Expo City, Mohali" },
+    { "value": 2, "suffix": "", "label": "Pockets", "sublabel": "Pocket A & Pocket B" }
+  ],
+  "about": {
+    "badge": "About the Project",
+    "title": "A New Urban Landmark in Punjab",
+    "description": "Aeroland is a meticulously planned township by the Greater Mohali Area Development Authority (GMADA), strategically located in the villages of Nandiali, Dyalpur, Bakarpur, and Matran — in the heart of the emerging Chandigarh-Mohali urban corridor.",
+    "overview": "Spanning across two well-defined pockets (Pocket A near Aerocity and Pocket B near Matran), Aeroland is designed to integrate seamlessly with the existing infrastructure of Aerocity, IT City Mohali, and the Chandigarh International Airport ecosystem.",
+    "vision_title": "Our Vision",
+    "vision": "To create a world-class, self-sustaining township that harmonizes modern living with economic opportunity — serving as the gateway to Punjab's aviation and technology future.",
+    "mission_title": "Our Mission",
+    "mission": "To deliver planned, transparent, and sustainable urban development backed by the Government of Punjab — offering investors, residents, and businesses a secure and high-value address near the Chandigarh International Airport.",
+    "authority": "Greater Mohali Area Development Authority (GMADA)",
+    "notification": "Social Impact Assessment Notification No. H-U-H1/65/2026-6H1/I/452 dated 03/03/2026"
+  },
+  "highlights": {
+    "badge": "Project Highlights",
+    "title": "Why Invest in Aeroland?",
+    "features": [
+      {
+        "icon": "airplane",
+        "title": "Prime Airport Proximity",
+        "description": "Located directly adjacent to Chandigarh International Airport, Aeroland offers unparalleled connectivity for business and leisure."
+      },
+      {
+        "icon": "government",
+        "title": "GMADA Backed & Approved",
+        "description": "Developed by the Greater Mohali Area Development Authority — a special development authority constituted by the Government of Punjab."
+      },
+      {
+        "icon": "ai",
+        "title": "Expo City & AI Tower",
+        "description": "India's first dedicated AI Tower coming to adjacent Expo City, with 300+ AI-based companies, data centers, and cybersecurity hubs."
+      },
+      {
+        "icon": "road",
+        "title": "₹1,878 Crore Bypass",
+        "description": "The 6-lane Zirakpur Bypass connecting Chandigarh and Panchkula is approved — dramatically improving regional connectivity."
+      },
+      {
+        "icon": "hospital",
+        "title": "Healthcare Infrastructure",
+        "description": "A Government Medical College & Hospital (similar to GMCH-32) is planned for the Dayalpura area, enhancing quality of life."
+      },
+      {
+        "icon": "sustainable",
+        "title": "Planned Green Township",
+        "description": "Aeroland includes dedicated parks, utility zones, smart sensors, a startup incubation center, and a municipal park — built for sustainable living."
+      }
+    ]
+  },
+  "media": {
+    "badge": "Press & Media",
+    "title": "Aeroland in the News",
+    "items": [
+      {
+        "image": "/assets/news1.jpg",
+        "headline": "GMADA Aerotropolis: 5500-Acre Mega Project Near Chandigarh Airport",
+        "source": "Dainik Bhaskar",
+        "date": "April 2026",
+        "tag": "Infrastructure"
+      },
+      {
+        "image": "/assets/news2.jpg",
+        "headline": "India's First AI Tower to Come Up in Mohali's Expo City — 300 Companies",
+        "source": "Dainik Bhaskar",
+        "date": "April 2026",
+        "tag": "Technology"
+      },
+      {
+        "image": "/assets/news3.jpg",
+        "headline": "Dayalpura: Police Station, Fire Station & Medical College Planned",
+        "source": "Google Search",
+        "date": "March 2026",
+        "tag": "Civic Infrastructure"
+      },
+      {
+        "image": "/assets/news4.jpg",
+        "headline": "Punjab Govt Notifies Social Impact Assessment for Expo City Land Acquisition",
+        "source": "Daily Post",
+        "date": "March 2026",
+        "tag": "Government"
+      },
+      {
+        "image": "/assets/news5.jpg",
+        "headline": "6-Lane Zirakpur Bypass & 200ft Road: Connectivity Boom for Aeroland Region",
+        "source": "Search Results",
+        "date": "April 2026",
+        "tag": "Connectivity"
+      }
+    ]
+  },
+  "location": {
+    "badge": "Location",
+    "title": "Strategically Located",
+    "description": "Aeroland sits at the confluence of Punjab's most ambitious development zones — adjacent to Chandigarh International Airport, Aerocity, and IT City Mohali.",
+    "masterplan_title": "Aeroland Master Plan",
+    "masterplan_description": "The master plan shows Pocket A (north, near Dyalpur/Nandiali) and Pocket B (south, near Matran) — both within the Aerocity development zone.",
+    "map_title": "Find Us on the Map",
+    "highlights": [
+      "Adjacent to Chandigarh International Airport",
+      "5 minutes from Aerocity Mohali",
+      "Direct access via 200ft Wide Road",
+      "Connected to Zirakpur via 6-Lane Bypass",
+      "Near IT City Mohali & Expo City"
+    ]
+  },
+  "docs": {
+    "badge": "Documentation",
+    "title": "Project Documents",
+    "summary_title": "Aeroland Master Plan — Summary",
+    "summary": "The Aeroland Master Plan, prepared by GMADA, outlines a comprehensive township development across two pockets in the Dayalpura area near Zirakpur. Pocket A (larger, northern pocket) covers the villages of Nandiali and Dyalpur and is designed as a high-density residential and commercial zone. Pocket B (southern) covers Matran and Bari villages. The plan integrates road networks, green belts, utility zones, and commercial corridors aligned with the broader Aerocity and Expo City masterplan. Key infrastructure includes HT Line re-routing, an internal road grid, green belt zones, and commercial plots along main arterial roads.",
+    "download": "Download Master Plan (PDF)",
+    "view": "View in Browser"
+  },
+  "contact": {
+    "badge": "Get in Touch",
+    "title": "Register Your Interest",
+    "description": "Be among the first to receive updates, plot availability, and exclusive investor briefings for Aeroland.",
+    "form": {
+      "name": "Full Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "message": "Your Message",
+      "message_placeholder": "Tell us about your investment interest or any queries...",
+      "submit": "Submit Inquiry",
+      "success": "Thank you! We'll be in touch shortly."
+    },
+    "info": {
+      "authority": "Greater Mohali Area Development Authority",
+      "address": "GMADA Office, Sector 62, SAS Nagar, Mohali, Punjab — 160062",
+      "email": "info@gmada.gov.in",
+      "phone": "+91-172-2228272"
+    }
+  },
+  "footer": {
+    "tagline": "Punjab's Premier Airport Township",
+    "links": {
+      "title": "Quick Links",
+      "items": ["Home", "About", "Highlights", "Media", "Location", "Documentation", "Contact"]
+    },
+    "legal": {
+      "title": "Legal",
+      "items": ["Privacy Policy", "Terms of Use", "Disclaimer"]
+    },
+    "copyright": "© 2026 Aeroland — GMADA, Government of Punjab. All rights reserved."
+  }
+}
