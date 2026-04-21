@@ -1,114 +1,139 @@
 # Registration System - Implementation
 
-## File Structure
-```
-src/
-├── app/
-│   ├── api/
-│   │   └── register/
-│   │       └── route.ts          # API endpoint for registration
-│   ├── page.tsx                  # Home page (updated)
-│   └── lib/
-│       └── mongodb.ts            # MongoDB connection
-├── components/
-│   └── RegistrationModal.tsx     # Modal component
-└── types/
-    └── registration.ts           # TypeScript interfaces
-```
+> **How to use this file:** Each section maps 1:1 to a source file. Edit any detail here and ask Claude to "update the website to match implementation.md". Include the section name so Claude knows which file to touch.
 
-## Implementation Steps
+---
 
-### 1. MongoDB Connection (`src/app/lib/mongodb.ts`)
+## File Map
+| Purpose | File |
+|---------|------|
+| MongoDB connection | `src/app/lib/mongodb.ts` |
+| Registration API endpoint | `src/app/api/register/route.ts` |
+| Modal UI component | `src/components/RegistrationModal.tsx` |
+| TypeScript interfaces | `src/types/registration.ts` |
+| Home page (modal trigger) | `src/app/page.tsx` |
+
+---
+
+## `src/app/lib/mongodb.ts` — MongoDB Connection
+- Uses native `mongodb` v6 driver
+- Caches `MongoClient` across requests (connection pooling for serverless)
+- Throws `Error: Please define the MONGODB_URI environment variable` if env var missing
+- Exported function: `connectToDatabase()` → returns `{ client, db }`
+
 ```typescript
-import { MongoClient } from 'mongodb';
-
-const MONGODB_URI = process.env.MONGODB_URI!;
-const MONGODB_DB = process.env.MONGODB_DB || 'aeroland';
-
+// Pattern used — do not change without updating this file
 let cachedClient: MongoClient | null = null;
 let cachedDb: any = null;
 
 export async function connectToDatabase() {
-  if (cachedClient && cachedDb) {
-    return { client: cachedClient, db: cachedDb };
-  }
-
+  if (cachedClient && cachedDb) return { client: cachedClient, db: cachedDb };
   const client = new MongoClient(MONGODB_URI);
   await client.connect();
   const db = client.db(MONGODB_DB);
-
   cachedClient = client;
   cachedDb = db;
   return { client, db };
 }
 ```
 
-### 2. API Route (`src/app/api/register/route.ts`)
-- POST endpoint
-- Validate form data
-- Check for duplicate email
-- Store in MongoDB `registrations` collection
-- Return success/error response
-- Add timestamps (createdAt)
+---
 
-### 3. Registration Modal Component (`src/components/RegistrationModal.tsx`)
-- Use Framer Motion for animations
-- Form fields: name, email, phone, pocket, budget, message
-- Real-time validation
-- Loading state during submission
-- Success message with redirect option
-- Error display
-- Close button and backdrop dismiss
+## `src/app/api/register/route.ts` — API Endpoint
+- Method: `POST`
+- Server-side validation:
+  - `name`: min 3 characters
+  - `email`: regex `/^[^\s@]+@[^\s@]+\.[^\s@]+$/`
+  - `phone`: regex `/^\d{10}$/`
+- Duplicate email check: queries `registrations` collection before insert
+- Inserts document with `createdAt: new Date()`
+- HTTP status codes: `201` success, `400` validation, `409` duplicate, `500` DB error
 
-### 4. Home Page Updates (`src/app/page.tsx`)
-- Import RegistrationModal component
-- Add state for modal visibility
-- Change "Register Interest" button to trigger modal open
-- Pass close handler to modal
+---
 
-### 5. Environment Setup
-Create `.env.local`:
+## `src/components/RegistrationModal.tsx` — Modal UI
+
+### State
+| State variable | Type | Purpose |
+|---------------|------|---------|
+| `isLoading` | boolean | Disables form + shows "Registering..." on button |
+| `isSuccess` | boolean | Switches form to success screen |
+| `error` | string \| null | Shows global API error banner |
+| `fieldErrors` | `{ email?, phone? }` | Shows inline error under each field |
+| `formData` | object | Controlled form values |
+
+### Validation (client-side)
+```typescript
+const validateEmail = (email: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+const validatePhone = (phone: string) => /^[6-9]\d{9}$/.test(phone.replace(/\s|-/g, ''));
 ```
-MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/
-MONGODB_DB=aeroland
-NEXT_PUBLIC_SITE_URL=http://localhost:3000
-```
+- Fires on each keystroke (`handleInputChange`) and on submit
+- Invalid field: red border (`border-red-400 focus:ring-red-400`) + red error text below
+- Valid field: green border (`border-gray-300 focus:ring-green-500`)
 
-## Form Validation
-- Name: min 3 characters
-- Email: valid email format, check duplicates
-- Phone: 10 digits, can be formatted
-- Pocket: A or B (optional)
-- Budget: optional dropdown
-- Message: max 500 characters (optional)
+### Success screen
+- Shows checkmark, "Registration Successful!" heading
+- Message: `Thank you for your interest. Redirecting to About...`
+- After `2000ms`: calls `onClose()` then `router.push('/about')`
 
-## API Response Format
-```json
-Success:
-{
-  "success": true,
-  "message": "Registration successful",
-  "data": { "_id": "...", "email": "..." }
+### Key classes
+| Element | Tailwind classes |
+|---------|-----------------|
+| Modal header | `gradient-green p-6 text-white` |
+| Input (valid) | `border-gray-300 focus:ring-green-500` |
+| Input (invalid) | `border-red-400 focus:ring-red-400` |
+| Field error text | `text-red-500 text-xs mt-1` |
+| Submit button | `gradient-green text-white py-3 rounded-lg font-bold` |
+| Global error banner | `p-3 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm` |
+
+---
+
+## `src/types/registration.ts` — TypeScript Interfaces
+```typescript
+interface RegistrationData {
+  name: string;
+  email: string;
+  phone: string;
+  pocket?: 'A' | 'B';
+  budget?: string;
+  message?: string;
+  createdAt?: Date;
 }
-
-Error:
-{
-  "success": false,
-  "error": "Email already registered"
-}
 ```
+> To add a new form field: add it here first, then add to `formData` state, the form JSX, and the API route.
+
+---
+
+## `src/app/page.tsx` — Home Page Modal Trigger
+- State: `const [isModalOpen, setIsModalOpen] = useState(false)`
+- Button `onClick`: `setIsModalOpen(true)`
+- Component: `<RegistrationModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />`
+
+---
+
+## Deployment
+| Environment | Config |
+|-------------|--------|
+| Local | `.env.local` with `MONGODB_URI` and `MONGODB_DB` |
+| Production (Vercel) | Set `MONGODB_URI` and `MONGODB_DB` in Vercel Dashboard → Settings → Environment Variables |
+| Domain | `aeroland.co.in` → A record pointing to `76.76.21.21` (Vercel) |
+
+---
 
 ## Testing Checklist
-- [x] Modal opens/closes correctly
-- [x] Form validates inputs
-- [x] API endpoint accepts POST requests
-- [x] Data stores in MongoDB
-- [x] Duplicate emails rejected
-- [x] Timestamp created automatically
-- [x] Redirect to /highlights works
-- [x] Error messages display properly
-- [x] Works on mobile/desktop
-- [x] Bilingual support for labels
+- [x] Modal opens on "Register Interest" button click
+- [x] Modal closes on backdrop click and ✕ button
+- [x] Email shows red border + error on invalid format
+- [x] Phone shows red border + error if not 10-digit Indian mobile
+- [x] Submit blocked if email or phone invalid
+- [x] API stores data in MongoDB `registrations` collection
+- [x] Duplicate email returns error message in form
+- [x] Success screen shows after valid submission
+- [x] Auto-redirects to `/about` after 2 seconds
+- [x] Works on mobile and desktop
+- [x] Build passes: `npm run build` zero errors
+
+---
 
 ## Build Verification
-Verified 2026-04-22: `npm run build` passes with zero TypeScript errors and zero lint errors. All 11 pages compile. `/api/register` route confirmed dynamic (server-rendered on demand).
+Last verified: 2026-04-22. `npm run build` — zero TypeScript errors, zero lint errors. All 11 pages compile. `/api/register` confirmed dynamic (server-rendered on demand).
