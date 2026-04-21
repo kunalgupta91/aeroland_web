@@ -98,14 +98,14 @@ export default function HomePage() {
             <p className="text-green-200 mb-8 max-w-xl mx-auto text-sm leading-relaxed">
               Secure your plot in Aeroland today. Limited availability in Pocket A &amp; Pocket B.
               GMADA-backed, government approved.
-            </pbutton
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button
                 onClick={() => setIsModalOpen(true)}
                 className="bg-white text-green-900 px-8 py-3.5 rounded-full font-bold text-sm hover:bg-green-100 transition-all hover:scale-105 shadow-lg"
               >
                 Register Your Interest
-              </button
-                {t.hero.cta_primary}
-              </Link>
+              </button>
               <Link
                 href="/docs"
                 className="border-2 border-white text-white px-8 py-3.5 rounded-full font-bold text-sm hover:bg-white hover:text-green-900 transition-all hover:scale-105"
