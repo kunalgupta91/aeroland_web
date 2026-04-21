@@ -1,11 +1,13 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { MdAirplanemodeActive, MdAccountBalance, MdLocationOn } from 'react-icons/md';
 import { FiArrowRight } from 'react-icons/fi';
 import HeroSection from '@/components/HeroSection';
 import StatsCounter from '@/components/StatsCounter';
+import RegistrationModal from '@/components/RegistrationModal';
 import { useLanguage } from '@/context/LanguageContext';
 
 const cards = [
@@ -31,10 +33,12 @@ const cards = [
 
 export default function HomePage() {
   const { t } = useLanguage();
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <>
       <HeroSection />
+      <RegistrationModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       <StatsCounter />
 
       {/* Quick value props */}
@@ -94,12 +98,12 @@ export default function HomePage() {
             <p className="text-green-200 mb-8 max-w-xl mx-auto text-sm leading-relaxed">
               Secure your plot in Aeroland today. Limited availability in Pocket A &amp; Pocket B.
               GMADA-backed, government approved.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/contact"
+            </pbutton
+                onClick={() => setIsModalOpen(true)}
                 className="bg-white text-green-900 px-8 py-3.5 rounded-full font-bold text-sm hover:bg-green-100 transition-all hover:scale-105 shadow-lg"
               >
+                Register Your Interest
+              </button
                 {t.hero.cta_primary}
               </Link>
               <Link
