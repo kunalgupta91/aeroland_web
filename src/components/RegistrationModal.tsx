@@ -55,10 +55,9 @@ export default function RegistrationModal({ isOpen, onClose }: RegistrationModal
         setIsSuccess(true);
         setFormData({ name: '', email: '', phone: '', pocket: '', budget: '', message: '' });
 
-        // Redirect to highlights after 2 seconds
         setTimeout(() => {
           onClose();
-          router.push('/highlights');
+          router.push('/about');
         }, 2000);
       }
     } catch (err: any) {
@@ -114,7 +113,7 @@ export default function RegistrationModal({ isOpen, onClose }: RegistrationModal
                     </div>
                     <h3 className="text-lg font-bold text-green-900 mb-2">Registration Successful!</h3>
                     <p className="text-gray-600 text-sm">
-                      Thank you for your interest. Redirecting to highlights...
+                      Thank you for your interest. Redirecting to About...
                     </p>
                   </motion.div>
                 ) : (
