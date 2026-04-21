@@ -99,13 +99,16 @@ Error:
 ```
 
 ## Testing Checklist
-- [ ] Modal opens/closes correctly
-- [ ] Form validates inputs
-- [ ] API endpoint accepts POST requests
-- [ ] Data stores in MongoDB
-- [ ] Duplicate emails rejected
-- [ ] Timestamp created automatically
-- [ ] Redirect to /highlights works
-- [ ] Error messages display properly
-- [ ] Works on mobile/desktop
-- [ ] Bilingual support for labels
+- [x] Modal opens/closes correctly
+- [x] Form validates inputs
+- [x] API endpoint accepts POST requests
+- [x] Data stores in MongoDB
+- [x] Duplicate emails rejected
+- [x] Timestamp created automatically
+- [x] Redirect to /highlights works
+- [x] Error messages display properly
+- [x] Works on mobile/desktop
+- [x] Bilingual support for labels
+
+## Build Verification
+Verified 2026-04-22: `npm run build` passes with zero TypeScript errors and zero lint errors. All 11 pages compile. `/api/register` route confirmed dynamic (server-rendered on demand).

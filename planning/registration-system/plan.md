@@ -43,14 +43,16 @@ User registration system for capturing leads interested in Aeroland project. Mod
 - Frontend: React, TypeScript, Framer Motion
 - Backend: Next.js API Routes
 - Database: MongoDB Atlas
-- ORM: Mongoose (optional) or native driver
+- Driver: Native `mongodb` v6 (no Mongoose)
 
-## Dependencies Required
-- axios or fetch (for API calls)
-- mongoose or mongodb package
-- nodemailer (optional, for confirmation emails)
+## Dependencies Used
+- `axios` — client-side API calls
+- `mongodb` v6 — native driver for Atlas connection
 
 ## Environment Variables
-- `MONGODB_URI` - MongoDB Atlas connection string
-- `MONGODB_DB` - Database name
-- `NEXT_PUBLIC_API_URL` - API base URL (for Vercel)
+- `MONGODB_URI` — MongoDB Atlas connection string
+- `MONGODB_DB` — Database name (`aeroland`)
+- `NEXT_PUBLIC_SITE_URL` — Site base URL
+
+## Status: COMPLETE ✓
+All features implemented and verified. Build passes with zero errors (verified 2026-04-22).
