@@ -79,7 +79,6 @@ export default function RegistrationModal({ isOpen, onClose }: RegistrationModal
         setFormData({ name: '', email: '', phone: '', pocket: '', budget: '', message: '' });
 
         setTimeout(() => {
-          onClose();
           router.push('/about');
         }, 2000);
       }
