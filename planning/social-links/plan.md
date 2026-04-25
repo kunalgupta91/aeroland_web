@@ -14,16 +14,16 @@ Floating button cluster — **bottom-right corner**, visible on all pages.
 
 ## Social Accounts
 
-| Platform | Detail | Placeholder (replace this) |
-|----------|--------|---------------------------|
-| WhatsApp | Phone number with country code | `+91XXXXXXXXXX` |
-| Instagram | Profile URL | `https://instagram.com/YOUR_HANDLE` |
-| Facebook | Page URL | `https://facebook.com/YOUR_PAGE` |
+| Platform | Detail | Value |
+|----------|--------|-------|
+| WhatsApp | Phone number | `+91 7840081118` |
+
+> Instagram and Facebook to be added later when handles are available.
 
 ---
 
 ## WhatsApp Behaviour
-- Clicking opens: `https://wa.me/91XXXXXXXXXX?text=Hi%2C%20I%27m%20interested%20in%20Aeroland`
+- Clicking opens: `https://wa.me/917840081118?text=Hi%2C%20I%27m%20interested%20in%20Aeroland`
 - Pre-filled message: `Hi, I'm interested in Aeroland`
 - Opens in new tab (`target="_blank"`)
 
@@ -50,5 +50,5 @@ Floating button cluster — **bottom-right corner**, visible on all pages.
 
 ---
 
-## Status: PENDING
-Waiting for actual WhatsApp number, Instagram handle, and Facebook page URL before implementation.
+## Status: COMPLETE ✓
+WhatsApp floating button implemented. Instagram/Facebook pending handles.
