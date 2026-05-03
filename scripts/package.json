@@ -5,6 +5,6 @@
   "description": "Dependencies for the Aeroland weekly SEO agent",
   "dependencies": {
     "googleapis": "^144.0.0",
-    "@anthropic-ai/sdk": "^0.39.0"
+    "openai": "^4.0.0"
   }
 }

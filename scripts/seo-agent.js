@@ -1,7 +1,7 @@
 'use strict';
 
 const { google } = require('googleapis');
-const Anthropic = require('@anthropic-ai/sdk');
+const OpenAI = require('openai');
 const fs = require('fs');
 const path = require('path');
 
@@ -90,9 +90,9 @@ async function fetchGSCData(gsc) {
   };
 }
 
-// ── Claude Analysis ────────────────────────────────────────────────────────────
+// ── OpenAI Analysis ────────────────────────────────────────────────────────────
 async function analyzeWithClaude(gscData) {
-  const client = new Anthropic();
+  const client = new OpenAI();
 
   const topQueriesSummary = gscData.topQueries.slice(0, 15)
     .map(r => `  - "${r.keys[0]}": ${r.clicks} clicks, ${r.impressions} impressions, pos ${r.position?.toFixed(1)}`)
@@ -140,13 +140,13 @@ Provide the following in clean markdown:
 
 Be specific and data-driven. Under 800 words total.`;
 
-  const msg = await client.messages.create({
-    model: 'claude-sonnet-4-6',
+  const msg = await client.chat.completions.create({
+    model: 'gpt-4o',
     max_tokens: 1500,
     messages: [{ role: 'user', content: prompt }],
   });
 
-  return msg.content[0].type === 'text' ? msg.content[0].text : '';
+  return msg.choices[0]?.message?.content ?? '';
 }
 
 // ── Report Generator ───────────────────────────────────────────────────────────
@@ -203,7 +203,7 @@ ${gscData.pagePerformance.length ? pagesTable : '_No page data yet._'}
 ${keywordTable}
 
 ---
-_Generated: ${new Date().toUTCString()} | Model: claude-sonnet-4-6 | Source: Google Search Console API_
+_Generated: ${new Date().toUTCString()} | Model: gpt-4o | Source: Google Search Console API_
 `;
 }
 
