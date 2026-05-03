@@ -2,7 +2,7 @@ name: Weekly SEO Agent
 
 on:
   schedule:
-    - cron: '30 3 * * 1'   # Every Monday 09:00 IST (03:30 UTC)
+    - cron: '30 3 */2 * *'  # Every 2 days at 09:00 IST (03:30 UTC)
   workflow_dispatch:         # Manual trigger for testing
 
 permissions:
