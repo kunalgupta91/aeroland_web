@@ -1,0 +1,10 @@
+{
+  "name": "aeroland-seo-scripts",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Dependencies for the Aeroland weekly SEO agent",
+  "dependencies": {
+    "googleapis": "^144.0.0",
+    "@anthropic-ai/sdk": "^0.39.0"
+  }
+}

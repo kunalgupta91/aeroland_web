@@ -1,0 +1,43 @@
+name: Weekly SEO Agent
+
+on:
+  schedule:
+    - cron: '30 3 * * 1'   # Every Monday 09:00 IST (03:30 UTC)
+  workflow_dispatch:         # Manual trigger for testing
+
+permissions:
+  contents: write
+
+jobs:
+  seo-report:
+    name: Generate SEO Report
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GH_PAT }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install script dependencies
+        run: npm install --prefix scripts
+
+      - name: Run SEO agent
+        env:
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node scripts/seo-agent.js
+
+      - name: Commit and push report
+        run: |
+          git config user.name "Aeroland SEO Bot"
+          git config user.email "seo-bot@aeroland.co.in"
+          git add seo-reports/
+          git diff --staged --quiet || git commit -m "chore: weekly SEO report $(date +%Y-%m-%d)"
+          git push
