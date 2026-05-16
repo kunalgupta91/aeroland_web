@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
 import { FaFacebookF, FaTwitter, FaLinkedinIn, FaYoutube } from 'react-icons/fa';
 
-const navHrefs = ['/', '/about', '/highlights', '/media', '/location', '/docs', '/contact'];
+const navHrefs = ['/', '/about', '/highlights', '/media', '/location', '/docs', '/floor-plan', '/payment-plan', '/contact'];
 
 export default function Footer() {
   const { t } = useLanguage();

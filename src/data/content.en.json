@@ -6,6 +6,8 @@
     "media": "Media",
     "location": "Location",
     "docs": "Documentation",
+    "floor_plan": "Floor Plan",
+    "payment_plan": "Payment Plan",
     "contact": "Contact"
   },
   "hero": {
@@ -134,6 +136,78 @@
     "download": "Download Master Plan (PDF)",
     "view": "View in Browser"
   },
+  "floor_plan": {
+    "badge": "Floor Plans",
+    "title": "Floor Plan",
+    "subtitle": "Tower 1, 2, 4, 5, 6 & 7 — Type 3BHK",
+    "description": "Typical floor plan from 1st to 15th floor featuring 4 spacious 3BHK units (A, B, C, D) per floor across Aeroland Heights towers.",
+    "type_label": "Type",
+    "type": "3 BHK",
+    "floors_label": "Floors",
+    "floors": "1st to 15th Floor",
+    "towers_label": "Towers",
+    "towers": "Tower 1, 2, 4, 5, 6 & 7",
+    "units_label": "Units per Floor",
+    "units": "4 Units — A, B, C, D",
+    "rera": "PBRERA-SAS79-PR1319",
+    "download": "Download Floor Plan"
+  },
+  "payment_plan": {
+    "badge": "Payment Plan",
+    "title": "Payment Plan",
+    "category_label": "Category",
+    "category": "3 BHK",
+    "size_label": "Size",
+    "size": "1850 sq. ft.",
+    "bsp_label": "Base Selling Price (BSP)",
+    "bsp": "Rs. 1,25,00,000/-",
+    "rera": "PBRERA-SAS79-PR1319",
+    "construction_title": "Construction Linked Payment Plan",
+    "down_payment_title": "Down Payment Plan",
+    "down_payment_discount": "5% Additional Discount",
+    "other_charges_title": "Other Charges",
+    "other_charges_note": "All one time charges to be paid by Allotee(s)",
+    "note_title": "Please Note",
+    "contact_label": "For Any Query Please Contact",
+    "contact_numbers": "78392 50007, 78394 30007",
+    "download": "Download Payment Plan",
+    "construction_plan": [
+      { "milestone": "Booking Amount", "payment": "10% of BSP + GST" },
+      { "milestone": "Another 15 days", "payment": "25% (Including Booking Amount) + GST" },
+      { "milestone": "On Completion of Stilt", "payment": "7.5% of BSP + GST" },
+      { "milestone": "On Casting of 1st Floor Slab", "payment": "7.5% of BSP + GST" },
+      { "milestone": "On Casting of 3rd Floor Slab", "payment": "7.5% of BSP + GST" },
+      { "milestone": "On Casting of 5th Floor Slab", "payment": "7.5% of BSP + GST" },
+      { "milestone": "On Casting of 7th Floor Slab", "payment": "7.5% of BSP + GST" },
+      { "milestone": "On Casting of 9th Floor Slab", "payment": "7.5% of BSP + GST" },
+      { "milestone": "On Casting of 11th Floor Slab", "payment": "7.5% of BSP + GST" },
+      { "milestone": "On Casting of 13th Floor Slab", "payment": "7.5% of BSP + GST" },
+      { "milestone": "Commencement of Finishing Work", "payment": "10% of BSP + GST" },
+      { "milestone": "On Offer of Possession", "payment": "5% of BSP + All Other Charges + GST" }
+    ],
+    "down_payment_plan": [
+      { "milestone": "At the time of Booking", "payment": "10% of BSP + GST" },
+      { "milestone": "Within 15 days of Booking", "payment": "25% of BSP + GST" },
+      { "milestone": "Within 45 days of Booking", "payment": "70% of BSP + GST" },
+      { "milestone": "At the time of Possession", "payment": "5% of BSP + GST" }
+    ],
+    "other_charges": [
+      { "label": "Club Membership Charges", "value": "Rs. 1,00,000/-" },
+      { "label": "IFMS", "value": "Rs. 50,000/-" },
+      { "label": "Power Backup", "value": "Rs. 75,000/3KVA" },
+      { "label": "PLC For Park Facing", "value": "Rs. 3,50,000/-" },
+      { "label": "PLC For 1st Floor to 4th Floor", "value": "Rs. 2,50,000/-" },
+      { "label": "PLC For 12th Floor to 15th Floor", "value": "Rs. 2,50,000/-" },
+      { "label": "Second Covered Car Parking", "value": "Rs. 4,00,000/- (Optional)" },
+      { "label": "Monthly Maintenance Charges", "value": "Rs. 2/- Per Sq. Ft. / Month for 2 years in Advance — Rs. 88,800/- (GST Extra)" }
+    ],
+    "notes": [
+      "Price indicated above are subject to revision from time to time at the sole discretion of the Company / Developer.",
+      "GST (as applicable) is to be paid extra with every installment and to be paid by the allottee/s.",
+      "Cost of the Stamp Duty, Registration Charges / Documentation Charges and any other charges / Taxes levied by Government shall be borne by the intending allottee/s as per actual.",
+      "Pay Order / Draft / Cheque to be issued in favour of 'KS DEVELOPERS' payable at MOHALI."
+    ]
+  },
   "contact": {
     "badge": "Get in Touch",
     "title": "Register Your Interest",
@@ -158,7 +232,7 @@
     "tagline": "Punjab's Premier Airport Township",
     "links": {
       "title": "Quick Links",
-      "items": ["Home", "About", "Highlights", "Media", "Location", "Documentation", "Contact"]
+      "items": ["Home", "About", "Highlights", "Media", "Location", "Documentation", "Floor Plan", "Payment Plan", "Contact"]
     },
     "legal": {
       "title": "Legal",

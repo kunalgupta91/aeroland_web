@@ -7,7 +7,7 @@ import { useLanguage } from '@/context/LanguageContext';
 import { HiMenuAlt3, HiX } from 'react-icons/hi';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const navHrefs = ['/', '/about', '/highlights', '/media', '/location', '/docs', '/contact'];
+const navHrefs = ['/', '/about', '/highlights', '/media', '/location', '/docs', '/floor-plan', '/payment-plan', '/contact'];
 
 export default function Navbar() {
   const [scrolled, setScrolled]     = useState(false);
@@ -56,7 +56,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Nav */}
-        <div className="hidden lg:flex items-center gap-6">
+        <div className="hidden lg:flex items-center gap-4">
           {navItems.map((label, i) => (
             <Link
               key={navHrefs[i]}
