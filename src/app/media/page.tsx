@@ -2,19 +2,19 @@ import type { Metadata } from 'next';
 import MediaClient from './MediaClient';
 
 export const metadata: Metadata = {
-  title: 'Aeroland in the News — Press & Media Coverage | GMADA Punjab',
+  title: 'GMADA Aeroland Media | Mohali Real Estate Updates',
   description:
-    'Latest news about Aeroland GMADA township — Aerotropolis 5500 acres, Expo City AI Tower Mohali, Zirakpur bypass, Punjab government announcements 2026.',
+    'Explore the latest GMADA Aeroland Mohali news, media coverage, project updates, and real estate developments near Chandigarh Airport and Aerocity Mohali.',
   keywords:
     'Aeroland news, GMADA Aerotropolis news, Expo City Mohali news, Chandigarh Airport township media, Punjab real estate news 2026',
   alternates: { canonical: 'https://aeroland.co.in/media' },
   openGraph: {
-    title: 'Aeroland Media Coverage — GMADA Punjab Township News',
-    description: 'Press coverage of Aeroland GMADA township — AI Tower, bypass, airport connectivity and Punjab government investment plans.',
+    title: 'GMADA Aeroland Media | Mohali Real Estate Updates',
+    description: 'Explore the latest GMADA Aeroland Mohali news, media coverage, project updates, and real estate developments near Chandigarh Airport and Aerocity Mohali.',
     url: 'https://aeroland.co.in/media',
     images: [{ url: 'https://aeroland.co.in/og-image.jpg', width: 1200, height: 630 }],
   },
-  twitter: { card: 'summary_large_image', title: 'Aeroland in the News — GMADA Punjab', images: ['https://aeroland.co.in/og-image.jpg'] },
+  twitter: { card: 'summary_large_image', title: 'GMADA Aeroland Media | Mohali Real Estate Updates', images: ['https://aeroland.co.in/og-image.jpg'] },
 };
 
 export default function MediaPage() {

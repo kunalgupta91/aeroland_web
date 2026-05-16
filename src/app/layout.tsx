@@ -14,11 +14,11 @@ const BASE_URL = 'https://aeroland.co.in';
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: "Aeroland — Punjab's Premier Airport Township | GMADA",
+    default: 'GMADA Aeroland Mohali | Plots Near Chandigarh Airport',
     template: '%s | Aeroland',
   },
   description:
-    'Aeroland is a GMADA-planned township adjacent to Chandigarh International Airport. Explore Pocket A & B, Aerocity connectivity, and investment opportunities in Punjab.',
+    'Discover GMADA Aeroland Mohali offering premium plots near Chandigarh Airport. Invest in Pocket A & B near Aerocity and Expo City Mohali with strong future growth potential.',
   keywords:
     'GMADA Aeroland, Aeroland Mohali, plots near Chandigarh airport, GMADA township Punjab, Aerocity Mohali plots, Expo City Mohali investment, Pocket A Pocket B Aeroland, real estate near Chandigarh airport, best investment opportunity',
   alternates: { canonical: BASE_URL },

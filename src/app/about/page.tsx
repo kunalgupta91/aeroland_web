@@ -2,20 +2,20 @@ import type { Metadata } from 'next';
 import AboutClient from './AboutClient';
 
 export const metadata: Metadata = {
-  title: 'About Aeroland — GMADA Township Vision & Mission | Mohali Punjab',
+  title: 'About GMADA Aeroland Mohali | Premium Township Punjab',
   description:
-    'Aeroland is developed by GMADA across villages Nandiali, Dyalpur, Bakarpur, and Matran near Chandigarh Airport. Pocket A near Aerocity, Pocket B near Matran. Punjab government backed.',
+    'Explore GMADA Aeroland Mohali, a premium township near Chandigarh Airport with modern infrastructure, strategic connectivity, and excellent real estate investment potential.',
   keywords:
     'About Aeroland GMADA, Aeroland township Mohali, GMADA Aerotropolis, Chandigarh Airport township, Nandiali Dyalpur Bakarpur Matran, best investment opportunity Mohali',
   alternates: { canonical: 'https://aeroland.co.in/about' },
   openGraph: {
-    title: 'About Aeroland — GMADA Punjab Township',
+    title: 'About GMADA Aeroland Mohali | Premium Township Punjab',
     description:
-      'A GMADA-backed township in Mohali adjacent to Chandigarh International Airport — vision, mission, and authority details.',
+      'Explore GMADA Aeroland Mohali, a premium township near Chandigarh Airport with modern infrastructure, strategic connectivity, and excellent real estate investment potential.',
     url: 'https://aeroland.co.in/about',
     images: [{ url: 'https://aeroland.co.in/og-image.jpg', width: 1200, height: 630 }],
   },
-  twitter: { card: 'summary_large_image', title: 'About Aeroland — GMADA Punjab Township', images: ['https://aeroland.co.in/og-image.jpg'] },
+  twitter: { card: 'summary_large_image', title: 'About GMADA Aeroland Mohali | Premium Township Punjab', images: ['https://aeroland.co.in/og-image.jpg'] },
 };
 
 export default function AboutPage() {
